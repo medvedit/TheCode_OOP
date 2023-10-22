@@ -1,4 +1,4 @@
-package org.medwed_sa.Seminar.Seminar_1_IntroductionToOOP.products;
+package org.medwed_sa.Seminar.Seminar_1_IntroductionToOOP.ClassWork.products;
 
 public class Bottle extends Product {
     private double volume;

@@ -1,6 +1,6 @@
-package org.medwed_sa.Seminar.Seminar_1_IntroductionToOOP.vending;
+package org.medwed_sa.Seminar.Seminar_1_IntroductionToOOP.ClassWork.vending;
 
-import org.medwed_sa.Seminar.Seminar_1_IntroductionToOOP.products.Product;
+import org.medwed_sa.Seminar.Seminar_1_IntroductionToOOP.ClassWork.products.Product;
 
 import java.util.ArrayList;
 import java.util.List;
