@@ -1,8 +1,8 @@
 package org.medwed_sa.Seminar.Seminar_1_IntroductionToOOP.ClassWork;
 
 import org.medwed_sa.Seminar.Seminar_1_IntroductionToOOP.ClassWork.products.Bottle;
-import org.medwed_sa.Seminar.Seminar_1_IntroductionToOOP.ClassWork.products.Product;
 import org.medwed_sa.Seminar.Seminar_1_IntroductionToOOP.ClassWork.vending.VendingMachine;
+import org.medwed_sa.Seminar.Seminar_1_IntroductionToOOP.ClassWork.products.Product;
 
 public class Main {
     public static void main(String[] args) {
