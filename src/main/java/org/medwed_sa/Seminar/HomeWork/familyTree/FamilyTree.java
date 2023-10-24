@@ -1,6 +1,6 @@
-package org.medwed_sa.Seminar.Seminar_1_IntroductionToOOP.HomeWork.familyTree;
+package org.medwed_sa.Seminar.HomeWork.familyTree;
 
-import org.medwed_sa.Seminar.Seminar_1_IntroductionToOOP.HomeWork.human.Human;
+import org.medwed_sa.Seminar.HomeWork.human.Human;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +37,9 @@ public class FamilyTree {
             humanList.add(human);
             human.setId(humanId++);
             addChildrenToParents(human);
+        } else {
+            System.out.printf("В семейном дереве %s человек %s уже существует.",
+                    getNameFamilyTree(),human.getFirstName());
         }
     }
 
