@@ -1,8 +1,9 @@
-package org.medwed_sa.Seminar.Seminar_1_IntroductionToOOP.HomeWork.human;
+package org.medwed_sa.Seminar.HomeWork.human;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Human {
     private long id;
@@ -213,5 +214,23 @@ public class Human {
         }
         return sb.toString();
     }
+
+    /**
+     *
+     * @param o Экземпляр класса Human, который необходимо проверить.
+     * @return Вернет true, если содержимое объектов равны.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Human human)) return false;
+        return Objects.equals(firstName, human.firstName)
+                && Objects.equals(birthDate, human.birthDate)
+                && Objects.equals(deathDate, human.deathDate)
+                && gender == human.gender
+                && Objects.equals(parents, human.parents)
+                && Objects.equals(children, human.children);
+    }
+
 }
 
