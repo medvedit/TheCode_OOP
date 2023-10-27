@@ -1,10 +1,12 @@
 package org.medwed_sa.Seminar.HomeWork.familyTree;
 
 import org.medwed_sa.Seminar.HomeWork.human.Human;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FamilyTree {
+public class FamilyTree implements Serializable {
     private int humanId;
     private String nameFamilyTree;
     private List<Human> humanList;
