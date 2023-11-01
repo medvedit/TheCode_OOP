@@ -3,8 +3,7 @@ package org.medwed_sa.Seminar.HomeWork;
 import org.medwed_sa.Seminar.HomeWork.familyTree.FamilyTree;
 import org.medwed_sa.Seminar.HomeWork.human.Gender;
 import org.medwed_sa.Seminar.HomeWork.human.Human;
-import org.medwed_sa.Seminar.HomeWork.save.Writable;
-import org.medwed_sa.Seminar.HomeWork.save.ioUtils.IOUtils;
+import org.medwed_sa.Seminar.HomeWork.save.FileHandlerService;
 
 import java.time.LocalDate;
 
@@ -19,17 +18,24 @@ public class Main {
         FamilyTree familyTreeRead = read();
 
         System.out.println(familyTreeRead);
+        familyTreeRead.getByName();
+        System.out.println(familyTreeRead);
+        familyTreeRead.getByAge();
+        System.out.println(familyTreeRead);
+
+
+
 
     }
 
     private static FamilyTree read(){
-        IOUtils ioUtils = new IOUtils();
-        return (FamilyTree) ioUtils.readFile(Writable.filePath);
+        FileHandlerService service = new FileHandlerService();
+        return (FamilyTree) service.readFile();
     }
 
     private static void save(FamilyTree familyTreeForPreservation) {
-        IOUtils ioUtils = new IOUtils();
-        ioUtils.saveFile(familyTreeForPreservation, Writable.filePath);
+        FileHandlerService service = new FileHandlerService();
+        service.saveFile(familyTreeForPreservation);
     }
 
 
@@ -67,6 +73,7 @@ public class Main {
 
 //        System.out.println(larisa);
         familyTree.addHuman(larisa);
+//        System.out.println(familyTree.getInfo());
 
 
 

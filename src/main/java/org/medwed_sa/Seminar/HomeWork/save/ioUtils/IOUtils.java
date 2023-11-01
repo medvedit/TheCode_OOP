@@ -1,11 +1,8 @@
 package org.medwed_sa.Seminar.HomeWork.save.ioUtils;
 
-
-import org.medwed_sa.Seminar.HomeWork.save.Writable;
-
 import java.io.*;
 
-public class IOUtils implements Writable {
+public class IOUtils {
 
     public boolean saveFile(Serializable serializable, String filePath) {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(

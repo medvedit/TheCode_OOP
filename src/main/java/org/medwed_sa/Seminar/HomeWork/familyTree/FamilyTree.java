@@ -1,12 +1,16 @@
 package org.medwed_sa.Seminar.HomeWork.familyTree;
 
+import org.medwed_sa.Seminar.HomeWork.familyTree.iterator.HumanIterator;
 import org.medwed_sa.Seminar.HomeWork.human.Human;
+import org.medwed_sa.Seminar.HomeWork.human.humanComparator.HumanComparatorByAge;
+import org.medwed_sa.Seminar.HomeWork.human.humanComparator.HumanComparatorByName;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class FamilyTree implements Serializable {
+public class FamilyTree implements Serializable, Iterable<Human> {
     private int humanId;
     private String nameFamilyTree;
     private List<Human> humanList;
@@ -261,6 +265,21 @@ public class FamilyTree implements Serializable {
         return false;
     }
 
+    @Override
+    public Iterator<Human> iterator() {
+        return new HumanIterator(humanList);
+    }
+
+    public void getByName(){
+        humanList.sort(new HumanComparatorByName());
+    }
+
+    public void getByAge(){
+        humanList.sort(new HumanComparatorByAge());
+    }
+
+
+
     /**
      * Переопределенный метод toString() для вывода в консоль всей информации о сущностях хранящихся в семейном дереве.
      *
@@ -291,6 +310,7 @@ public class FamilyTree implements Serializable {
         }
         return sb.toString();
     }
+
 
     /**
      * Геттер
