@@ -19,11 +19,11 @@ public class StudyGroup implements Iterable<Student>{
     }
 
     public void sortByName(){
-//        Collections.sort(studentList);
+//        Collections.sort(studentList, new StudentComparatorByName()); // Как пример вызова метода sort()
         studentList.sort(new StudentComparatorByName());
     }
     public void sortByAge(){
-//        Collections.sort(studentList, new StudentComparatorByAge());
+//        Collections.sort(studentList, new StudentComparatorByAge()); // Как пример вызова метода sort()
         studentList.sort(new StudentComparatorByAge());
     }
 
