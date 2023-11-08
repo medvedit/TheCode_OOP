@@ -1,6 +1,6 @@
-package org.medwed_sa.Seminar.Seminar_3.study_group.builder;
+package org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.builder;
 
-import org.medwed_sa.Seminar.Seminar_3.study_group.student.Student;
+import org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.student.Student;
 
 public class StudyBuilder {
     private long currentId = 1;

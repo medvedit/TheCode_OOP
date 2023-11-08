@@ -1,6 +1,6 @@
-package org.medwed_sa.Seminar.Seminar_3.study_group;
+package org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup;
 
-import org.medwed_sa.Seminar.Seminar_3.study_group.service.Service;
+import org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.service.Service;
 
 public class Main {
 

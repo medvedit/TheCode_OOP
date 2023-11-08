@@ -1,6 +1,6 @@
-package org.medwed_sa.Seminar.Seminar_3.study_group.student.student_comparator;
+package org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.student.student_comparator;
 
-import org.medwed_sa.Seminar.Seminar_3.study_group.student.Student;
+import org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.student.Student;
 
 import java.util.Comparator;
 

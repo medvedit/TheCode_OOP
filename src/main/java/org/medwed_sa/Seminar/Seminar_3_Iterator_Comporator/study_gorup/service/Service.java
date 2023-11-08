@@ -1,8 +1,8 @@
-package org.medwed_sa.Seminar.Seminar_3.study_group.service;
+package org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.service;
 
-import org.medwed_sa.Seminar.Seminar_3.study_group.student.Student;
-import org.medwed_sa.Seminar.Seminar_3.study_group.builder.StudyBuilder;
-import org.medwed_sa.Seminar.Seminar_3.study_group.study_group.StudyGroup;
+import org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.student.Student;
+import org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.builder.StudyBuilder;
+import org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.study_group.StudyGroup;
 
 public class Service {
     private StudyGroup studyGroup;

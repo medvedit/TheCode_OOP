@@ -1,9 +1,9 @@
-package org.medwed_sa.Seminar.Seminar_3.study_group.study_group;
+package org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.study_group;
 
-import org.medwed_sa.Seminar.Seminar_3.study_group.student.Student;
-import org.medwed_sa.Seminar.Seminar_3.study_group.student.student_comparator.StudentComparatorByAge;
-import org.medwed_sa.Seminar.Seminar_3.study_group.student.student_comparator.StudentComparatorByName;
-import org.medwed_sa.Seminar.Seminar_3.study_group.study_group.student_iterator.StudentIterator;
+import org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.student.Student;
+import org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.student.student_comparator.StudentComparatorByAge;
+import org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.student.student_comparator.StudentComparatorByName;
+import org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.study_group.student_iterator.StudentIterator;
 
 import java.util.*;
 

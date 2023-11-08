@@ -1,7 +1,6 @@
 package org.medwed_sa.Seminar.HomeWork.familyTree.iterator;
 
 import org.medwed_sa.Seminar.HomeWork.human.Human;
-import org.medwed_sa.Seminar.Seminar_3.study_group.student.Student;
 
 import java.util.Iterator;
 import java.util.List;

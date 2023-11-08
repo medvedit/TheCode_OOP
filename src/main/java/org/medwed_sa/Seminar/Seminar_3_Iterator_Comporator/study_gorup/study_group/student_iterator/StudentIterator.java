@@ -1,6 +1,6 @@
-package org.medwed_sa.Seminar.Seminar_3.study_group.study_group.student_iterator;
+package org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.study_group.student_iterator;
 
-import org.medwed_sa.Seminar.Seminar_3.study_group.student.Student;
+import org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.student.Student;
 
 import java.util.Iterator;
 import java.util.List;

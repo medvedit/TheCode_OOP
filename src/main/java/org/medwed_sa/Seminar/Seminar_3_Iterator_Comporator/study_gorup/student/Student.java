@@ -1,4 +1,4 @@
-package org.medwed_sa.Seminar.Seminar_3.study_group.student;
+package org.medwed_sa.Seminar.Seminar_3_Iterator_Comporator.study_gorup.student;
 
 public class Student {
     private long id;
