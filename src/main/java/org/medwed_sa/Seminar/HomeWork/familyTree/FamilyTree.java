@@ -1,7 +1,7 @@
 package org.medwed_sa.Seminar.HomeWork.familyTree;
 
 import org.medwed_sa.Seminar.HomeWork.familyTree.iterator.HumanIterator;
-import org.medwed_sa.Seminar.HomeWork.human.Human;
+import org.medwed_sa.Seminar.HomeWork.human.EntityCreation;
 import org.medwed_sa.Seminar.HomeWork.human.humanComparator.HumanComparatorByAge;
 import org.medwed_sa.Seminar.HomeWork.human.humanComparator.HumanComparatorByName;
 
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class FamilyTree implements Serializable, Iterable<Human> {
+public class FamilyTree<E extends EntityCreation<E>> implements Serializable, Iterable<E> {
     private int humanId;
     private String nameFamilyTree;
-    private List<Human> humanList;
+    private List<E> humanList;
 
     /**
      * Конструктор создания сущности -> "Семейное дерево" с двумя параметрами.
@@ -21,7 +21,7 @@ public class FamilyTree implements Serializable, Iterable<Human> {
      * @param nameFamilyTree имя семейного дерева
      * @param humanList      готовый список сущностей (допустим из сохранения)
      */
-    public FamilyTree(String nameFamilyTree, List<Human> humanList) {
+    public FamilyTree(String nameFamilyTree, List<E> humanList) {
         this.nameFamilyTree = nameFamilyTree;
         this.humanList = humanList;
     }
@@ -31,7 +31,7 @@ public class FamilyTree implements Serializable, Iterable<Human> {
      *
      * @param humanList готовый список сущностей (допустим из сохранения)
      */
-    public FamilyTree(List<Human> humanList) {
+    public FamilyTree(List<E> humanList) {
         this(null, humanList);
     }
 
@@ -59,7 +59,7 @@ public class FamilyTree implements Serializable, Iterable<Human> {
      *
      * @param human сущность добавляемого человека
      */
-    public void addHuman(Human human) {
+    public void addHuman(E human) {
         if (human == null) {
             return;
         }
@@ -80,11 +80,11 @@ public class FamilyTree implements Serializable, Iterable<Human> {
      * @param id Номер id для поиска
      * @return найденный человек, иначе null
      */
-    public Human getById(long id) {
+    public E getById(long id) {
         if (!checkId(id)) {
             return null;
         }
-        for (Human human : humanList) {
+        for (E human : humanList) {
             if (human.getId() == id) {
                 return human;
             }
@@ -106,7 +106,7 @@ public class FamilyTree implements Serializable, Iterable<Human> {
         if (id >= humanId || id < 0) {
             return false;
         }
-        for (Human human : humanList) {
+        for (E human : humanList) {
             if (human.getId() == id) {
                 return true;
             }
@@ -126,8 +126,8 @@ public class FamilyTree implements Serializable, Iterable<Human> {
      */
     public void setWedding(long humanId1, long humanId2) {
         if (checkId(humanId1) && checkId(humanId2)) {
-            Human human1 = getById(humanId1);
-            Human human2 = getById(humanId2);
+            E human1 = getById(humanId1);
+            E human2 = getById(humanId2);
             setWedding(human1, human2);
         }
     }
@@ -140,7 +140,7 @@ public class FamilyTree implements Serializable, Iterable<Human> {
      * @param human1 первая сущность
      * @param human2 вторая сущность
      */
-    public void setWedding(Human human1, Human human2) {
+    public void setWedding(E human1, E human2) {
         if (human1.getSpouse() == null && human2.getSpouse() == null) {
             human1.setSpouse(human2);
             human2.setSpouse(human1);
@@ -159,8 +159,8 @@ public class FamilyTree implements Serializable, Iterable<Human> {
      */
     public void setDivorce(long humanId1, long humanId2) {
         if (checkId(humanId1) && checkId(humanId2)) {
-            Human human1 = getById(humanId1);
-            Human human2 = getById(humanId2);
+            E human1 = getById(humanId1);
+            E human2 = getById(humanId2);
             setDivorce(human1, human2);
         }
     }
@@ -173,7 +173,7 @@ public class FamilyTree implements Serializable, Iterable<Human> {
      * @param human1 первая сущность
      * @param human2 вторая сущность
      */
-    public void setDivorce(Human human1, Human human2) {
+    public void setDivorce(E human1, E human2) {
         if (human1.getSpouse() != null && human2.getSpouse() != null) {
             human1.setSpouse(null);
             human2.setSpouse(null);
@@ -193,14 +193,14 @@ public class FamilyTree implements Serializable, Iterable<Human> {
      * @param id id ребенка у которого требуется найти брата или сестру.
      * @return Список всех данных о найденных братьях или сестрах.
      */
-    public List<Human> getSiblings(int id) {
-        Human human = getById(id);
+    public List<E> getSiblings(int id) {
+        E human = getById(id);
         if (human == null) {
             return null;
         }
-        List<Human> result = new ArrayList<>();
-        for (Human parent : human.getParents()) {
-            for (Human child : parent.getChildren()) {
+        List<E> result = new ArrayList<>();
+        for (E parent : human.getParents()) {
+            for (E child : parent.getChildren()) {
                 if (!child.equals(human) && !result.contains(child)) {
                     result.add(child);
                 }
@@ -216,8 +216,8 @@ public class FamilyTree implements Serializable, Iterable<Human> {
      *
      * @param human Сущность, возможный потенциальный ребенок для добавления.
      */
-    private void addChildrenToParents(Human human) {
-        for (Human parent : human.getParents()) {
+    private void addChildrenToParents(E human) {
+        for (E parent : human.getParents()) {
             parent.addChild(human);
         }
     }
@@ -229,8 +229,8 @@ public class FamilyTree implements Serializable, Iterable<Human> {
      *
      * @param human Сущность, возможный потенциальный родитель для добавления.
      */
-    private void addParentsToChildren(Human human) {
-        for (Human child : human.getChildren()) {
+    private void addParentsToChildren(E human) {
+        for (E child : human.getChildren()) {
             child.addParent(human);
         }
     }
@@ -241,9 +241,9 @@ public class FamilyTree implements Serializable, Iterable<Human> {
      * @param firstName имя человека
      * @return информация о человеке
      */
-    public List<Human> getByFirstName(String firstName) {
-        List<Human> result = new ArrayList<>();
-        for (Human human : humanList) {
+    public List<E> getByFirstName(String firstName) {
+        List<E> result = new ArrayList<>();
+        for (E human : humanList) {
             if (human.getFirstName().equals(firstName)) {
                 result.add(human);
             }
@@ -259,23 +259,23 @@ public class FamilyTree implements Serializable, Iterable<Human> {
      */
     public boolean humanRemove(long id) {
         if (checkId(id)) {
-            Human human = getById(id);
+            E human = getById(id);
             return humanList.remove(human);
         }
         return false;
     }
 
     @Override
-    public Iterator<Human> iterator() {
-        return new HumanIterator(humanList);
+    public Iterator<E> iterator() {
+        return new HumanIterator<>(humanList);
     }
 
     public void getByName(){
-        humanList.sort(new HumanComparatorByName());
+        humanList.sort(new HumanComparatorByName<>());
     }
 
     public void getByAge(){
-        humanList.sort(new HumanComparatorByAge());
+        humanList.sort(new HumanComparatorByAge<>());
     }
 
 
@@ -303,7 +303,7 @@ public class FamilyTree implements Serializable, Iterable<Human> {
         sb.append(humanList.size());
         sb.append(" объектов)");
         sb.append("\n");
-        for (Human human : humanList) {
+        for (E human : humanList) {
             sb.append(human);
             sb.append("\n");
 

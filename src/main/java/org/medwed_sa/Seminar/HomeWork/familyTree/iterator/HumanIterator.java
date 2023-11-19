@@ -5,6 +5,7 @@ import org.medwed_sa.Seminar.HomeWork.human.EntityCreation;
 import java.util.Iterator;
 import java.util.List;
 
+
 public class HumanIterator<T extends EntityCreation<T>> implements Iterator<T> {
     private int index;
     private List<T> studentList;

@@ -1,7 +1,6 @@
 package org.medwed_sa.Seminar.HomeWork.human.humanComparator;
 
 import org.medwed_sa.Seminar.HomeWork.human.EntityCreation;
-import org.medwed_sa.Seminar.HomeWork.human.Human;
 
 import java.util.Comparator;
 

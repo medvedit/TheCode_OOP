@@ -10,12 +10,11 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
 
-        FamilyTree familyTreeList = getFamilyTreeTest();
-//        System.out.println(familyTreeList);
+        FamilyTree<Human> familyTreeList = getFamilyTreeTest();
 
         save(familyTreeList);
 
-        FamilyTree familyTreeRead = read();
+        FamilyTree<Human> familyTreeRead = read();
 
         System.out.println(familyTreeRead);
         familyTreeRead.getByName();
@@ -28,20 +27,20 @@ public class Main {
 
     }
 
-    private static FamilyTree read(){
+    private static FamilyTree<Human> read(){
         FileHandlerService service = new FileHandlerService();
         return (FamilyTree) service.readFile();
     }
 
-    private static void save(FamilyTree familyTreeForPreservation) {
+    private static void save(FamilyTree<Human> familyTreeForPreservation) {
         FileHandlerService service = new FileHandlerService();
         service.saveFile(familyTreeForPreservation);
     }
 
 
-    private static FamilyTree getFamilyTreeTest() {
+    private static FamilyTree<Human> getFamilyTreeTest() {
 
-        FamilyTree familyTree = new FamilyTree("Test");
+        FamilyTree<Human> familyTree = new FamilyTree<>("Test");
 
         Human oleg = new Human("Олег", Gender.Male,
                 LocalDate.of(1988, 3, 5));

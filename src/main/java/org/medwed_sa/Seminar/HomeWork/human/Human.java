@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+
 public class Human implements EntityCreation<Human> {
     private long id;
     private String firstName;

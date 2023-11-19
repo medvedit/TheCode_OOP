@@ -1,9 +1,9 @@
 package org.medwed_sa.Seminar.HomeWork.human.humanComparator;
 
 import org.medwed_sa.Seminar.HomeWork.human.EntityCreation;
-import org.medwed_sa.Seminar.HomeWork.human.Human;
 
 import java.util.Comparator;
+
 
 public class HumanComparatorByAge<T extends EntityCreation<T>> implements Comparator<T> {
     @Override
