@@ -1,13 +1,14 @@
 package org.medwed_sa.Seminar.HomeWork.human.humanComparator;
 
+import org.medwed_sa.Seminar.HomeWork.human.EntityCreation;
 import org.medwed_sa.Seminar.HomeWork.human.Human;
 
 import java.util.Comparator;
 
-public class HumanComparatorByName implements Comparator<Human> {
+public class HumanComparatorByName<T extends EntityCreation<T>> implements Comparator<T> {
 
     @Override
-    public int compare(Human o1, Human o2) {
+    public int compare(T o1, T o2) {
         return o1.getFirstName().compareTo(o2.getFirstName());
     }
 }

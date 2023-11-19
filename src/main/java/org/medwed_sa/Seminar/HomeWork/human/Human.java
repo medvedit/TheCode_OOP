@@ -1,13 +1,12 @@
 package org.medwed_sa.Seminar.HomeWork.human;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Human implements Serializable {
+public class Human implements EntityCreation<Human> {
     private long id;
     private String firstName;
     private LocalDate birthDate;
@@ -194,6 +193,7 @@ public class Human implements Serializable {
     }
 
     public List<Human> getChildren() {
+
         return children;
     }
 

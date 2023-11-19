@@ -1,15 +1,15 @@
-package org.medwed_sa.Seminar.HomeWork.familyTree.iterator;
+package org.medwed_sa.Seminar.Seminar_4_Generics.work_seminar.study_group.study_group.student_iterator;
 
-import org.medwed_sa.Seminar.HomeWork.human.EntityCreation;
+import org.medwed_sa.Seminar.Seminar_4_Generics.work_seminar.study_group.student.Student;
 
 import java.util.Iterator;
 import java.util.List;
 
-public class HumanIterator<T extends EntityCreation<T>> implements Iterator<T> {
+public class StudentIterator<T> implements Iterator<T> {
     private int index;
     private List<T> studentList;
 
-    public HumanIterator(List<T> studentList) {
+    public StudentIterator(List<T> studentList) {
         this.studentList = studentList;
     }
 
