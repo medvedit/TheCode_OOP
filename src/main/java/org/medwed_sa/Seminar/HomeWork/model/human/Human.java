@@ -1,11 +1,12 @@
-package org.medwed_sa.Seminar.HomeWork.human;
+package org.medwed_sa.Seminar.HomeWork.model.human;
+
+import ru.medved_sa.tree_family.model.familyTree.EntityCreation;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 
 public class Human implements EntityCreation<Human> {
     private long id;
@@ -194,7 +195,6 @@ public class Human implements EntityCreation<Human> {
     }
 
     public List<Human> getChildren() {
-
         return children;
     }
 

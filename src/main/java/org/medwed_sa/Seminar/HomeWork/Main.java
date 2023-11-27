@@ -1,9 +1,10 @@
 package org.medwed_sa.Seminar.HomeWork;
 
-import org.medwed_sa.Seminar.HomeWork.familyTree.FamilyTree;
-import org.medwed_sa.Seminar.HomeWork.human.Gender;
-import org.medwed_sa.Seminar.HomeWork.human.Human;
-import org.medwed_sa.Seminar.HomeWork.save.FileHandlerService;
+import ru.medved_sa.tree_family.model.familyTree.FamilyTree;
+import ru.medved_sa.tree_family.model.human.Gender;
+import ru.medved_sa.tree_family.model.human.Human;
+import ru.medved_sa.tree_family.view.Console;
+import ru.medved_sa.tree_family.view.View;
 
 import java.time.LocalDate;
 
@@ -12,30 +13,45 @@ public class Main {
 
         FamilyTree<Human> familyTreeList = getFamilyTreeTest();
 
-        save(familyTreeList);
 
-        FamilyTree<Human> familyTreeRead = read();
+//        save(familyTreeList);
+//        System.out.println(familyTreeList);
+//        FamilyTree<Human> familyTreeRead = read();
+//
+//
+//        System.out.println(getHumanListInfoIterator(familyTreeRead));
+//
+//        familyTreeRead.sortByFirstName();
+//        System.out.println(familyTreeRead);
+//        familyTreeRead.sortByAge();
+//        System.out.println(familyTreeRead);
 
-        System.out.println(familyTreeRead);
-        familyTreeRead.getByName();
-        System.out.println(familyTreeRead);
-        familyTreeRead.getByAge();
-        System.out.println(familyTreeRead);
-
+        View view = new Console();
+        view.start();
 
 
 
     }
 
-    private static FamilyTree<Human> read(){
-        FileHandlerService service = new FileHandlerService();
-        return (FamilyTree) service.readFile();
-    }
 
-    private static void save(FamilyTree<Human> familyTreeForPreservation) {
-        FileHandlerService service = new FileHandlerService();
-        service.saveFile(familyTreeForPreservation);
-    }
+//    private static String getHumanListInfoIterator(FamilyTree<Human> familyList) {
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("Список семейного древа через iterator:\n");
+//        for (Human human : familyList) {
+//            sb.append(human);
+//            sb.append("\n");
+//        }
+//        return sb.toString();
+//    }
+
+//    private static FamilyTree<Human> read() {
+//        FileHandler<Human> fileHandler = new FileHandler<>();
+//        return (FamilyTree) fileHandler.readFile(new FileHandler().getFilePath());
+//    }
+//    private static void save(FamilyTree<Human> familyTreeForPreservation) {
+//        FileHandler<Human> fileHandler = new FileHandler<>();
+//        fileHandler.saveFile(familyTreeForPreservation);
+//    }
 
 
     private static FamilyTree<Human> getFamilyTreeTest() {
@@ -72,8 +88,6 @@ public class Main {
 
 //        System.out.println(larisa);
         familyTree.addHuman(larisa);
-//        System.out.println(familyTree.getInfo());
-
 
 
 //        System.out.println(oleg.getFindInfoAboutChildren());
@@ -87,7 +101,7 @@ public class Main {
 //        System.out.println(familyTree.getByFirstName(irina.getFirstName()));
 
 
-
         return familyTree;
     }
+
 }

@@ -1,19 +1,18 @@
-package org.medwed_sa.Seminar.HomeWork.familyTree;
+package org.medwed_sa.Seminar.HomeWork.model.familyTree;
 
-import org.medwed_sa.Seminar.HomeWork.familyTree.iterator.HumanIterator;
-import org.medwed_sa.Seminar.HomeWork.human.EntityCreation;
-import org.medwed_sa.Seminar.HomeWork.human.humanComparator.HumanComparatorByAge;
-import org.medwed_sa.Seminar.HomeWork.human.humanComparator.HumanComparatorByName;
+import ru.medved_sa.tree_family.model.familyTree.iterator.HumanIterator;
+import ru.medved_sa.tree_family.model.human.comparator.HumanComparatorByAge;
+import ru.medved_sa.tree_family.model.human.comparator.HumanComparatorByFirstName;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class FamilyTree<E extends EntityCreation<E>> implements Serializable, Iterable<E> {
+public class FamilyTree<T extends EntityCreation<T>> implements Serializable, Iterable<T> {
     private int humanId;
     private String nameFamilyTree;
-    private List<E> humanList;
+    private List<T> humanList;
 
     /**
      * Конструктор создания сущности -> "Семейное дерево" с двумя параметрами.
@@ -21,7 +20,7 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      * @param nameFamilyTree имя семейного дерева
      * @param humanList      готовый список сущностей (допустим из сохранения)
      */
-    public FamilyTree(String nameFamilyTree, List<E> humanList) {
+    public FamilyTree(String nameFamilyTree, List<T> humanList) {
         this.nameFamilyTree = nameFamilyTree;
         this.humanList = humanList;
     }
@@ -31,7 +30,7 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      *
      * @param humanList готовый список сущностей (допустим из сохранения)
      */
-    public FamilyTree(List<E> humanList) {
+    public FamilyTree(List<T> humanList) {
         this(null, humanList);
     }
 
@@ -59,7 +58,7 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      *
      * @param human сущность добавляемого человека
      */
-    public void addHuman(E human) {
+    public void addHuman(T human) {
         if (human == null) {
             return;
         }
@@ -80,11 +79,11 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      * @param id Номер id для поиска
      * @return найденный человек, иначе null
      */
-    public E getById(long id) {
+    public T getById(long id) {
         if (!checkId(id)) {
             return null;
         }
-        for (E human : humanList) {
+        for (T human : humanList) {
             if (human.getId() == id) {
                 return human;
             }
@@ -102,11 +101,11 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      * @param id входящий id человека для его поиска
      * @return true/false
      */
-    private boolean checkId(long id) {
+    public boolean checkId(long id) {
         if (id >= humanId || id < 0) {
             return false;
         }
-        for (E human : humanList) {
+        for (T human : humanList) {
             if (human.getId() == id) {
                 return true;
             }
@@ -126,8 +125,8 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      */
     public void setWedding(long humanId1, long humanId2) {
         if (checkId(humanId1) && checkId(humanId2)) {
-            E human1 = getById(humanId1);
-            E human2 = getById(humanId2);
+            T human1 = getById(humanId1);
+            T human2 = getById(humanId2);
             setWedding(human1, human2);
         }
     }
@@ -140,7 +139,7 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      * @param human1 первая сущность
      * @param human2 вторая сущность
      */
-    public void setWedding(E human1, E human2) {
+    public void setWedding(T human1, T human2) {
         if (human1.getSpouse() == null && human2.getSpouse() == null) {
             human1.setSpouse(human2);
             human2.setSpouse(human1);
@@ -159,8 +158,8 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      */
     public void setDivorce(long humanId1, long humanId2) {
         if (checkId(humanId1) && checkId(humanId2)) {
-            E human1 = getById(humanId1);
-            E human2 = getById(humanId2);
+            T human1 = getById(humanId1);
+            T human2 = getById(humanId2);
             setDivorce(human1, human2);
         }
     }
@@ -173,7 +172,7 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      * @param human1 первая сущность
      * @param human2 вторая сущность
      */
-    public void setDivorce(E human1, E human2) {
+    public void setDivorce(T human1, T human2) {
         if (human1.getSpouse() != null && human2.getSpouse() != null) {
             human1.setSpouse(null);
             human2.setSpouse(null);
@@ -193,14 +192,14 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      * @param id id ребенка у которого требуется найти брата или сестру.
      * @return Список всех данных о найденных братьях или сестрах.
      */
-    public List<E> getSiblings(int id) {
-        E human = getById(id);
+    public List<T> getSiblings(int id) {
+        T human = getById(id);
         if (human == null) {
             return null;
         }
-        List<E> result = new ArrayList<>();
-        for (E parent : human.getParents()) {
-            for (E child : parent.getChildren()) {
+        List<T> result = new ArrayList<>();
+        for (T parent : human.getParents()) {
+            for (T child : parent.getChildren()) {
                 if (!child.equals(human) && !result.contains(child)) {
                     result.add(child);
                 }
@@ -216,8 +215,8 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      *
      * @param human Сущность, возможный потенциальный ребенок для добавления.
      */
-    private void addChildrenToParents(E human) {
-        for (E parent : human.getParents()) {
+    private void addChildrenToParents(T human) {
+        for (T parent : human.getParents()) {
             parent.addChild(human);
         }
     }
@@ -229,8 +228,8 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      *
      * @param human Сущность, возможный потенциальный родитель для добавления.
      */
-    private void addParentsToChildren(E human) {
-        for (E child : human.getChildren()) {
+    private void addParentsToChildren(T human) {
+        for (T child : human.getChildren()) {
             child.addParent(human);
         }
     }
@@ -241,9 +240,9 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      * @param firstName имя человека
      * @return информация о человеке
      */
-    public List<E> getByFirstName(String firstName) {
-        List<E> result = new ArrayList<>();
-        for (E human : humanList) {
+    public List<T> sortByFirstName(String firstName) {
+        List<T> result = new ArrayList<>();
+        for (T human : humanList) {
             if (human.getFirstName().equals(firstName)) {
                 result.add(human);
             }
@@ -259,25 +258,24 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      */
     public boolean humanRemove(long id) {
         if (checkId(id)) {
-            E human = getById(id);
+            T human = getById(id);
             return humanList.remove(human);
         }
         return false;
     }
 
     @Override
-    public Iterator<E> iterator() {
+    public Iterator<T> iterator() {
         return new HumanIterator<>(humanList);
     }
 
-    public void getByName(){
-        humanList.sort(new HumanComparatorByName<>());
+    public void sortByFirstName() {
+        humanList.sort(new HumanComparatorByFirstName<>());
     }
 
-    public void getByAge(){
+    public void sortByAge() {
         humanList.sort(new HumanComparatorByAge<>());
     }
-
 
 
     /**
@@ -295,7 +293,7 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
      *
      * @return StringBuilder.toString()
      */
-    public String getInfo(){
+    public String getInfo() {
         StringBuilder sb = new StringBuilder();
         sb.append("\nСемейное дерево семьи: ");
         sb.append(getNameFamilyTree());
@@ -303,14 +301,13 @@ public class FamilyTree<E extends EntityCreation<E>> implements Serializable, It
         sb.append(humanList.size());
         sb.append(" объектов)");
         sb.append("\n");
-        for (E human : humanList) {
+        for (T human : humanList) {
             sb.append(human);
             sb.append("\n");
 
         }
         return sb.toString();
     }
-
 
     /**
      * Геттер

@@ -1,10 +1,9 @@
-package org.medwed_sa.Seminar.HomeWork.familyTree.iterator;
+package org.medwed_sa.Seminar.HomeWork.model.familyTree.iterator;
 
-import org.medwed_sa.Seminar.HomeWork.human.EntityCreation;
+import ru.medved_sa.tree_family.model.familyTree.EntityCreation;
 
 import java.util.Iterator;
 import java.util.List;
-
 
 public class HumanIterator<T extends EntityCreation<T>> implements Iterator<T> {
     private int index;
