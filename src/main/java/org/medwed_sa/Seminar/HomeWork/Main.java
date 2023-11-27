@@ -1,10 +1,12 @@
 package org.medwed_sa.Seminar.HomeWork;
 
-import ru.medved_sa.tree_family.model.familyTree.FamilyTree;
-import ru.medved_sa.tree_family.model.human.Gender;
-import ru.medved_sa.tree_family.model.human.Human;
-import ru.medved_sa.tree_family.view.Console;
-import ru.medved_sa.tree_family.view.View;
+
+import org.medwed_sa.Seminar.HomeWork.model.familyTree.FamilyTree;
+import org.medwed_sa.Seminar.HomeWork.model.human.Gender;
+import org.medwed_sa.Seminar.HomeWork.model.human.Human;
+import org.medwed_sa.Seminar.HomeWork.model.save.FileHandler;
+import org.medwed_sa.Seminar.HomeWork.view.Console;
+import org.medwed_sa.Seminar.HomeWork.view.View;
 
 import java.time.LocalDate;
 
@@ -13,7 +15,7 @@ public class Main {
 
         FamilyTree<Human> familyTreeList = getFamilyTreeTest();
 
-
+//
 //        save(familyTreeList);
 //        System.out.println(familyTreeList);
 //        FamilyTree<Human> familyTreeRead = read();
@@ -44,14 +46,14 @@ public class Main {
 //        return sb.toString();
 //    }
 
-//    private static FamilyTree<Human> read() {
-//        FileHandler<Human> fileHandler = new FileHandler<>();
-//        return (FamilyTree) fileHandler.readFile(new FileHandler().getFilePath());
-//    }
-//    private static void save(FamilyTree<Human> familyTreeForPreservation) {
-//        FileHandler<Human> fileHandler = new FileHandler<>();
-//        fileHandler.saveFile(familyTreeForPreservation);
-//    }
+    private static FamilyTree<Human> read() {
+        FileHandler<Human> fileHandler = new FileHandler<>();
+        return fileHandler.readFile(new FileHandler<Human>().getFilePath());
+    }
+    private static void save(FamilyTree<Human> familyTreeForPreservation) {
+        FileHandler<Human> fileHandler = new FileHandler<>();
+        fileHandler.saveFile(familyTreeForPreservation, fileHandler.getFilePath());
+    }
 
 
     private static FamilyTree<Human> getFamilyTreeTest() {

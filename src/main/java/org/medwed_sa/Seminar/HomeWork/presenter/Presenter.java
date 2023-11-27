@@ -1,8 +1,8 @@
 package org.medwed_sa.Seminar.HomeWork.presenter;
 
-import ru.medved_sa.tree_family.model.Service;
-import ru.medved_sa.tree_family.model.save.FileHandler;
-import ru.medved_sa.tree_family.view.View;
+import org.medwed_sa.Seminar.HomeWork.model.Service;
+import org.medwed_sa.Seminar.HomeWork.model.save.FileHandler;
+import org.medwed_sa.Seminar.HomeWork.view.View;
 
 public class Presenter {
     private View view;

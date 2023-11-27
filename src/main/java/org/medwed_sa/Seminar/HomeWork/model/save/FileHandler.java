@@ -1,13 +1,13 @@
 package org.medwed_sa.Seminar.HomeWork.model.save;
 
 
-import ru.medved_sa.tree_family.model.familyTree.EntityCreation;
-import ru.medved_sa.tree_family.model.familyTree.FamilyTree;
+import org.medwed_sa.Seminar.HomeWork.model.familyTree.EntityCreation;
+import org.medwed_sa.Seminar.HomeWork.model.familyTree.FamilyTree;
 
 import java.io.*;
 
 public class FileHandler<E extends EntityCreation<E>> implements Writable<FamilyTree<E>> {
-    private String filePath = "src/ru/medved_sa/tree_family/model/save/familyTree.out";
+    private String filePath = "src/main/java/org/medwed_sa/Seminar/HomeWork/model/save/familyTree.out";
 
     public String getFilePath() {
         return filePath;

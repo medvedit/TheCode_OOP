@@ -1,8 +1,9 @@
 package org.medwed_sa.Seminar.HomeWork.model.familyTree;
 
-import ru.medved_sa.tree_family.model.familyTree.iterator.HumanIterator;
-import ru.medved_sa.tree_family.model.human.comparator.HumanComparatorByAge;
-import ru.medved_sa.tree_family.model.human.comparator.HumanComparatorByFirstName;
+
+import org.medwed_sa.Seminar.HomeWork.model.familyTree.iterator.HumanIterator;
+import org.medwed_sa.Seminar.HomeWork.model.human.comparator.HumanComparatorByAge;
+import org.medwed_sa.Seminar.HomeWork.model.human.comparator.HumanComparatorByFirstName;
 
 import java.io.Serializable;
 import java.util.ArrayList;

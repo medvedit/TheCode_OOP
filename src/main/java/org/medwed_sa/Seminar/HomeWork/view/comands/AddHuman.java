@@ -1,6 +1,7 @@
 package org.medwed_sa.Seminar.HomeWork.view.comands;
 
-import ru.medved_sa.tree_family.view.View;
+
+import org.medwed_sa.Seminar.HomeWork.view.View;
 
 public class AddHuman extends Command {
 

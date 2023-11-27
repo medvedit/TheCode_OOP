@@ -1,6 +1,7 @@
 package org.medwed_sa.Seminar.HomeWork.view;
 
-import ru.medved_sa.tree_family.presenter.Presenter;
+
+import org.medwed_sa.Seminar.HomeWork.presenter.Presenter;
 
 import java.util.Scanner;
 

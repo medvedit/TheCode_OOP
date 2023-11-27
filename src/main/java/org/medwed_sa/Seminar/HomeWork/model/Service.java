@@ -1,9 +1,10 @@
 package org.medwed_sa.Seminar.HomeWork.model;
 
-import ru.medved_sa.tree_family.model.familyTree.FamilyTree;
-import ru.medved_sa.tree_family.model.human.Gender;
-import ru.medved_sa.tree_family.model.human.Human;
-import ru.medved_sa.tree_family.model.save.Writable;
+
+import org.medwed_sa.Seminar.HomeWork.model.familyTree.FamilyTree;
+import org.medwed_sa.Seminar.HomeWork.model.human.Gender;
+import org.medwed_sa.Seminar.HomeWork.model.human.Human;
+import org.medwed_sa.Seminar.HomeWork.model.save.Writable;
 
 import java.time.LocalDate;
 

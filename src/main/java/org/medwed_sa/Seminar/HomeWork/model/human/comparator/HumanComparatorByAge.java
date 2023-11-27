@@ -1,6 +1,7 @@
 package org.medwed_sa.Seminar.HomeWork.model.human.comparator;
 
-import ru.medved_sa.tree_family.model.familyTree.EntityCreation;
+
+import org.medwed_sa.Seminar.HomeWork.model.familyTree.EntityCreation;
 
 import java.util.Comparator;
 

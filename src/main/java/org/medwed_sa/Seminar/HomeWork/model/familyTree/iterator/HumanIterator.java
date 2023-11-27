@@ -1,6 +1,7 @@
 package org.medwed_sa.Seminar.HomeWork.model.familyTree.iterator;
 
-import ru.medved_sa.tree_family.model.familyTree.EntityCreation;
+
+import org.medwed_sa.Seminar.HomeWork.model.familyTree.EntityCreation;
 
 import java.util.Iterator;
 import java.util.List;
