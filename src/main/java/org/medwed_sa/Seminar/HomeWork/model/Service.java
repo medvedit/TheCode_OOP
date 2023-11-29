@@ -51,6 +51,10 @@ public class Service {
         activeTree.sortByAge();
     }
 
+    public void sortById() {
+        activeTree.sortById();
+    }
+
     public String getHumanList() {
         return activeTree.getInfo();
     }

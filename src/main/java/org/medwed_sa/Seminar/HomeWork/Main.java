@@ -12,9 +12,9 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-
-        FamilyTree<Human> familyTreeList = getFamilyTreeTest();
-
+//
+//        FamilyTree<Human> familyTreeList = getFamilyTreeTest();
+//
 //
 //        save(familyTreeList);
 //        System.out.println(familyTreeList);
@@ -58,7 +58,7 @@ public class Main {
 
     private static FamilyTree<Human> getFamilyTreeTest() {
 
-        FamilyTree<Human> familyTree = new FamilyTree<>("Test");
+        FamilyTree<Human> familyTree = new FamilyTree<>("Ивановы");
 
         Human oleg = new Human("Олег", Gender.Male,
                 LocalDate.of(1988, 3, 5));

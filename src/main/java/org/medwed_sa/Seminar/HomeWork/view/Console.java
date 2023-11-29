@@ -53,9 +53,11 @@ public class Console implements View {
 
     @Override
     public void setParent() {
-        System.out.println("Укажите id человека, для которого надо указать родителя. Id можно посмотреть в списке выше");
+        System.out.println("Укажите ID человека, для которого надо указать родителя." +
+                "ID можно увидеть при запросе всего списка людей.");
         int personId = Integer.parseInt(scanner.nextLine());
-        System.out.println("Укажите id родителя. Id можно посмотреть в списке выше");
+        System.out.println("Укажите ID родителя. " +
+                "Id можно увидеть при запросе всего списка людей.");
         int parentId = Integer.parseInt(scanner.nextLine());
         presenter.setParent(personId, parentId);
     }
@@ -70,6 +72,10 @@ public class Console implements View {
     public void sortByAge() {
         presenter.sortByAge();
     }
+    @Override
+    public void sortById() {
+        presenter.sortById();
+    }
 
     @Override
     public void finish() {
@@ -77,35 +83,31 @@ public class Console implements View {
         work = false;
     }
 
-    @Override
-    public void noSortedList() {
-        presenter.getHumanList();
-    }
 
     @Override
     public void readDataFromFile() {
-        System.out.println("Укажите путь к файлу для загрузки дерева");
+        System.out.println("Укажите полный путь к файлу для загрузки дерева");
         String path = scanner.nextLine();
         while (!presenter.readFile(path)) {
-            System.out.println("Не удалось загрузить файл. Хотите попробовать снова? y/n");
-            if (scanner.nextLine().equals("n")) {
+            System.out.println("Не удалось загрузить файл. Хотите попробовать снова? Y/N");
+            if (scanner.nextLine().equals("N")) {
                 break;
             }
-            System.out.println("Укажите путь к файлу для загрузки дерева");
+            System.out.println("Укажите полный путь к файлу для загрузки дерева");
             path = scanner.nextLine();
         }
     }
 
     @Override
     public void saveDataFromFile() {
-        System.out.println("Укажите путь к файлу для сохранения дерева");
+        System.out.println("Укажите полный путь к файлу для сохранения дерева");
         String path = scanner.nextLine();
         while (!presenter.saveFile(path)) {
-            System.out.println("Не удалось сохранить объект. Хотите попробовать снова? y/n");
-            if (scanner.nextLine().equals("n")) {
+            System.out.println("Не удалось сохранить объект. Хотите попробовать снова? Y/N");
+            if (scanner.nextLine().equals("N")) {
                 break;
             }
-            System.out.println("Укажите путь к файлу для сохранения дерева");
+            System.out.println("Укажите полный путь к файлу для сохранения дерева");
             path = scanner.nextLine();
         }
     }

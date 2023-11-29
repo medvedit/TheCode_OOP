@@ -4,6 +4,7 @@ package org.medwed_sa.Seminar.HomeWork.model.familyTree;
 import org.medwed_sa.Seminar.HomeWork.model.familyTree.iterator.HumanIterator;
 import org.medwed_sa.Seminar.HomeWork.model.human.comparator.HumanComparatorByAge;
 import org.medwed_sa.Seminar.HomeWork.model.human.comparator.HumanComparatorByFirstName;
+import org.medwed_sa.Seminar.HomeWork.model.human.comparator.HumanComparatorById;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -276,6 +277,9 @@ public class FamilyTree<T extends EntityCreation<T>> implements Serializable, It
 
     public void sortByAge() {
         humanList.sort(new HumanComparatorByAge<>());
+    }
+    public void sortById() {
+        humanList.sort(new HumanComparatorById<>());
     }
 
 

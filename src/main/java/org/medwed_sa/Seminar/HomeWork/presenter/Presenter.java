@@ -42,6 +42,11 @@ public class Presenter {
         getHumanList();
     }
 
+    public void sortById() {
+        service.sortById();
+        getHumanList();
+    }
+
     public boolean readFile(String filePath) {
         return service.readFile(filePath);
     }
