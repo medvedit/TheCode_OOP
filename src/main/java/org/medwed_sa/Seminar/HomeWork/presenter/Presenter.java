@@ -1,6 +1,6 @@
 package org.medwed_sa.Seminar.HomeWork.presenter;
 
-import org.medwed_sa.Seminar.HomeWork.model.Service;
+import org.medwed_sa.Seminar.HomeWork.model.service.Service;
 import org.medwed_sa.Seminar.HomeWork.model.save.FileHandler;
 import org.medwed_sa.Seminar.HomeWork.view.View;
 
@@ -18,12 +18,8 @@ public class Presenter {
         view.printAnswer(answer);
     }
 
-    public boolean setParent(int personId, int parentId){
-        if (service.checkId(personId) & service.checkId(parentId)) {
-            service.setParent(personId, parentId);
-            return true;
-        }
-        return false;
+    public void setParent(int personId, int parentId){
+        service.setParent(personId, parentId);
     }
 
     public void getHumanList() {

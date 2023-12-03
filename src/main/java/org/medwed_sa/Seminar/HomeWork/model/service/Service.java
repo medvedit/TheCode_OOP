@@ -1,4 +1,4 @@
-package org.medwed_sa.Seminar.HomeWork.model;
+package org.medwed_sa.Seminar.HomeWork.model.service;
 
 
 import org.medwed_sa.Seminar.HomeWork.model.familyTree.FamilyTree;
@@ -26,11 +26,11 @@ public class Service {
     }
 
     public boolean readFile(String filePath) {
-        FamilyTree<Human> tempTree = new FamilyTree<>();
-        tempTree = writable.readFile(filePath);
+        FamilyTree<Human> tempTree;
         if (writable == null) {
             return false;
         }
+        tempTree = writable.readFile(filePath);
         activeTree = tempTree;
         return true;
     }
@@ -59,10 +59,14 @@ public class Service {
         return activeTree.getInfo();
     }
 
-    public void setParent(int person_id, int parent_id){
-        Human human = activeTree.getById(person_id);
-        human.addParent(activeTree.getById(parent_id));
-        activeTree.getById(parent_id).addChild(human);
+    public boolean setParent(int person_id, int parent_id){
+        if (activeTree.checkId(person_id) && activeTree.checkId(parent_id)) {
+            Human human = activeTree.getById(person_id);
+            human.addParent(activeTree.getById(parent_id));
+            activeTree.getById(parent_id).addChild(human);
+            return true;
+        }
+        return false;
     }
 
     public boolean checkId(int id){

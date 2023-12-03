@@ -13,13 +13,18 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
 //
+        View view = new Console();
+        view.start();
+
+
+
+
+
 //        FamilyTree<Human> familyTreeList = getFamilyTreeTest();
-//
 //
 //        save(familyTreeList);
 //        System.out.println(familyTreeList);
 //        FamilyTree<Human> familyTreeRead = read();
-//
 //
 //        System.out.println(getHumanListInfoIterator(familyTreeRead));
 //
@@ -27,12 +32,6 @@ public class Main {
 //        System.out.println(familyTreeRead);
 //        familyTreeRead.sortByAge();
 //        System.out.println(familyTreeRead);
-
-        View view = new Console();
-        view.start();
-
-
-
     }
 
 
@@ -46,50 +45,50 @@ public class Main {
 //        return sb.toString();
 //    }
 
-    private static FamilyTree<Human> read() {
-        FileHandler<Human> fileHandler = new FileHandler<>();
-        return fileHandler.readFile(new FileHandler<Human>().getFilePath());
-    }
-    private static void save(FamilyTree<Human> familyTreeForPreservation) {
-        FileHandler<Human> fileHandler = new FileHandler<>();
-        fileHandler.saveFile(familyTreeForPreservation, fileHandler.getFilePath());
-    }
+//    private static FamilyTree<Human> read() {
+//        FileHandler<Human> fileHandler = new FileHandler<>();
+//        return (FamilyTree) fileHandler.readFile(new FileHandler().getFilePath());
+//    }
+//    private static void save(FamilyTree<Human> familyTreeForPreservation) {
+//        FileHandler<Human> fileHandler = new FileHandler<>();
+//        fileHandler.saveFile(familyTreeForPreservation, fileHandler.getFilePath());
+//    }
 
 
-    private static FamilyTree<Human> getFamilyTreeTest() {
-
-        FamilyTree<Human> familyTree = new FamilyTree<>("Ивановы");
-
-        Human oleg = new Human("Олег", Gender.Male,
-                LocalDate.of(1988, 3, 5));
-        Human irina = new Human("Ирина", Gender.Female,
-                LocalDate.of(1993, 12, 11));
+//    private static FamilyTree<Human> getFamilyTreeTest() {
+//
+//        FamilyTree<Human> familyTree = new FamilyTree<>("Ивановы");
+//
+//        Human oleg = new Human("Олег", Gender.Male,
+//                LocalDate.of(1988, 3, 5));
+//        Human irina = new Human("Ирина", Gender.Female,
+//                LocalDate.of(1993, 12, 11));
 
 //        System.out.println(oleg.toString());
 
-        Human varvara = new Human("Кристина", Gender.Female,
-                LocalDate.of(2020, 6, 15), oleg, irina);
-        Human evgeniy = new Human("Евгений", Gender.Male,
-                LocalDate.of(2018, 5, 12), oleg, irina);
-
-        familyTree.addHuman(oleg);
+//        Human varvara = new Human("Кристина", Gender.Female,
+//                LocalDate.of(2020, 6, 15), oleg, irina);
+//        Human evgeniy = new Human("Евгений", Gender.Male,
+//                LocalDate.of(2018, 5, 12), oleg, irina);
+//
+//        familyTree.addHuman(oleg);
 //        familyTree.addHuman(oleg); // Выдает сообщение о не возможности добавить человека.
-        familyTree.addHuman(irina);
+//        familyTree.addHuman(irina);
 
 //        familyTree.setWedding(oleg.getId(), irina.getId());
-        familyTree.setWedding(oleg, irina);
+//        familyTree.setWedding(oleg, irina);
 
 
-        familyTree.addHuman(varvara);
-        familyTree.addHuman(evgeniy);
-
-        Human larisa = new Human("Лариса", Gender.Female,
-                LocalDate.of(1955, 9, 1));
-
-        larisa.addChild(oleg);
+//        familyTree.addHuman(varvara);
+//        familyTree.addHuman(evgeniy);
+//
+//        Human larisa = new Human("Лариса", Gender.Female,
+//                LocalDate.of(1955, 9, 1));
+//
+//        larisa.addChild(oleg);
 
 //        System.out.println(larisa);
-        familyTree.addHuman(larisa);
+//        familyTree.addHuman(larisa);
 
 
 //        System.out.println(oleg.getFindInfoAboutChildren());
@@ -103,7 +102,7 @@ public class Main {
 //        System.out.println(familyTree.getByFirstName(irina.getFirstName()));
 
 
-        return familyTree;
-    }
+//        return familyTree;
+//    }
 
 }

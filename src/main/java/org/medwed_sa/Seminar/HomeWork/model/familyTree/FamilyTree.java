@@ -278,6 +278,7 @@ public class FamilyTree<T extends EntityCreation<T>> implements Serializable, It
     public void sortByAge() {
         humanList.sort(new HumanComparatorByAge<>());
     }
+
     public void sortById() {
         humanList.sort(new HumanComparatorById<>());
     }
